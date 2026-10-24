@@ -15,6 +15,8 @@ test("test", async ({ page }) => {
     page.locator("div").filter({ hasText: /^Dashboard$/ }),
   ).toBeVisible();
 
+  await page.locator(".oxd-userdropdown-tab").click();
+
   await page.getByRole("menuitem", { name: "Logout" }).click();
 
   await expect(page.getByRole("heading", { name: "Login" })).toBeVisible();
